@@ -19,7 +19,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        run: ssh-keyscan -H 51.250.48.209 >> ~/.ssh/known_hosts
+      - run: ssh-keyscan -H 51.250.48.209 >> ~/.ssh/known_hosts
           
       - name: SFTP Deploy
         uses: wlixcc/SFTP-Deploy-Action@v1.2.1
