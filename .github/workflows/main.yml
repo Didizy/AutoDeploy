@@ -19,6 +19,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        run: ssh-keyscan -H 51.250.48.209 >> ~/.ssh/known_hosts
           
       - name: SFTP Deploy
         uses: wlixcc/SFTP-Deploy-Action@v1.2.1
@@ -27,7 +28,7 @@ jobs:
           server: http://51.250.48.209
           port: 22 # default is 22
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
- 
+          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
           
           # will put all file under this path
           local_path: ./* # default is ./*
